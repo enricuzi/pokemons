@@ -6,8 +6,8 @@ import {COLORS} from "../../models/model-colors";
 const ItemComponent: React.FC<{ name: string, classification: string, types: string[] }> = ({name = "No name", classification = '', types = []}) => {
 	const firstTypeName: string = types.length > 0 ? types[0] : 'Normal';
 	const secondTypeName: string = types.length > 1 ? types[1] : firstTypeName;
-	const color0 = COLORS[firstTypeName];
-	const color1 = COLORS[secondTypeName];
+	const color0 = COLORS[firstTypeName] || COLORS['Normal'];
+	const color1 = COLORS[secondTypeName] || COLORS['Normal'];
 	return (
 		<Card title={<>
 			<span className={'card-background'}
