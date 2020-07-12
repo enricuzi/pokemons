@@ -90,7 +90,7 @@ Centralizes data requests with Apollo GraphQL.
 - pokemonTypes
     - Returns all pokemon type list.
 
-## How to install
+# How to install
 
 Execute `yarn install` from root folder
 
