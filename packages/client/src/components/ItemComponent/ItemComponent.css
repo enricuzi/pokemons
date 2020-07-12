@@ -1,0 +1,38 @@
+.ant-card {
+	border-radius: 5px;
+	-webkit-box-shadow: 2px 4px 11px -2px rgba(0, 0, 0, 0.65);
+	-moz-box-shadow: 2px 4px 11px -2px rgba(0, 0, 0, 0.65);
+	box-shadow: 2px 4px 11px -2px rgba(0, 0, 0, 0.65);
+}
+
+.ant-card-head {
+	overflow: hidden;
+	position: relative;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+
+.ant-card-head-title {
+	font-weight: bold;
+}
+
+.pokemon-type {
+}
+
+.pokemon-type span {
+	margin-right: 5px;
+}
+
+.pokemon-classification {
+	color: darkgray;
+}
+
+.card-background {
+	position: absolute;
+	top: -300%;
+	left: -50%;
+	width: 200%;
+	height: 800%;
+	transform: rotate(30deg);
+}

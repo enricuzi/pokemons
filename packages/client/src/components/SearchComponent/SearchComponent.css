@@ -1,0 +1,87 @@
+.component-search {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+}
+
+.component-search .filter-criteria {
+	display: flex;
+	width: 100%;
+}
+
+.component-search .filter-label {
+	background: white;
+	height: 32px;
+	line-height: 31px;
+	padding: 0 10px;
+	border: 1px solid #d9d9d9;
+}
+
+.component-search .ant-select {
+	flex-grow: 1;
+}
+
+.component-search .ant-input-search {
+}
+
+.component-search .filter-by-name,
+.component-search .filter-by-type {
+	line-height: 1;
+}
+
+.component-search .filter-by-type,
+.component-search .filter-by-name {
+	display: none;
+	width: 100%;
+}
+
+.component-search.filter-type .filter-criteria,
+.component-search.filter-name .filter-criteria {
+	display: none;
+}
+
+.component-search.filter-name .filter-by-name,
+.component-search.filter-type .filter-by-type {
+	display: flex;
+}
+
+.component-search .filter-back {
+	width: 30px;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@media screen and (min-width: 640px) {
+
+	.component-search.filter-type .filter-criteria,
+	.component-search.filter-name .filter-criteria {
+		display: flex;
+	}
+
+	.component-search .filter-by-name {
+		width: auto;
+	}
+
+	.component-search .filter-by-type {
+		width: 120px;
+	}
+
+	.component-search .filter-back {
+		display: none;
+	}
+
+	.component-search {
+		flex-direction: row;
+	}
+
+	.component-search .ant-input-search {
+	}
+
+	.component-search .filter-criteria {
+		width: 140px;
+		margin-right: 5px;
+	}
+}

@@ -1,0 +1,16 @@
+.component-load-more {
+	margin: 20px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+}
+
+
+.component-load-more button {
+	transform: translateY(100%);
+	transition: transform ease-in-out .3s;
+}
+
+.component-load-more.show-button button {
+	transform: translateY(0);
+}
