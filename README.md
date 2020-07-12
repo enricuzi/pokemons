@@ -1,68 +1,103 @@
-# Assignment for Frontend Position
+# React Pokemons
 
-In Satispay one of the main task for a frontend developer is to build useful interfaces in order to display, search and interact with data.
+Search pokemon data optionally filtering by name or type.
 
-The target of this UI are other Satispay colleagues through internal dashboard/consoles.
+By default, the page loads all the pokemons paging the data 10 by 10.
 
-It is not important to have a beautiful UI in terms of design, but we need to have a consistent and working interface allowing the users to work with data without frictions.
+Select a filter criteria:
+- Name: to show input text and search pokemons by name
+- Type: to show the list of all pokemon types to filter
 
-## Introduction
+# Client package
 
-For this assignment what you will build is a simple page (and a server app) for querying and filtering a dataset of Pokémons.  
-The Pokèmons dataset is harcoded inside the project.
+### Responsive Layout
 
-The server app will be powered by Node.js, `typescript` and [`apollo-server`](https://www.apollographql.com/docs/apollo-server/) and it is partially implemented.  
-The client app will be powered by `typescript`, `react`, [`apollo-client`](https://www.apollographql.com/docs/react/) and [`antd`](https://ant.design/) and you will build it from scratch.
+The frontend layout is designed around a responsive grid based on screen width
 
-You can add other libraries if needed; if you are not confident with some of this libraries you can pick alternatives.  
-For the client side app we recommend to use `webpack`.
+The header of the page controls the search criteria.
 
-This project is powered by `yarn` and workspaces.  
-Once cloned this project can be installed with `yarn install`.  
-You can run scripts on client with `yarn workspace @frontend-assignment/client <command>`, and on server with `yarn workspace @frontend-assignment/server <command>`.  
-For the server you can start the the app with `yarn workspace @frontend-assignment/server start`.
+The body of the page handles the data list.
 
-## Tasks
+Each card changes its background color based on which and how many types the item has.
 
-### Server side
+### Client components
 
-The server schema follows the [relay](https://facebook.github.io/relay/graphql/connections.htm) standard for connection, simplified.
+- App: 
+    - Centralize the backend requests to the get data.
+    - Controls the rendering of the data list
+    - Responds to broadcasted events to load more and filter data.
+    
+- ListComponent:
+    - Handles the responsive grid layout.
+    
+- ItemComponent:
+    - Holds the single card layout and pokemon data.
+    
+- LoadMoreComponent:
+    - Broadcasts load more requests.
+    
+- SearchComponent:
+    - Broadcasts selected filter criteria.
+    
+### Client models
 
-Implement `pokemonsByType` query: it accepts a `type: String` parameter and return a connection of Pokèmons.  
-If you feel confident you can add pagination parameters `after: String` and `limit: Int`.
+- Colors:
+    - Defines a color for each pokemon type.
+    
+- Pokemon:
+    - Defines object interfaces to use across the project.
+    
+- Redux:
+    - Defines object interfaces to use with redux broadcasting.
+    
+### Redux
 
-### Client side
+Defines actions and reducers to handle react redux. 
 
-Use components in `antd` library to create a page with this capabilities:
+### Services
 
-- possibility to search Pokémons by name
-- possibility to filterType Pokémons by type
-- display Pokémons search result in a table with columns:
-  - name
-  - type
-  - classification
-- if `hasNextPage` is true add the possibility to load more results.
+Centralizes data requests with Apollo GraphQL.
 
-## Submission
+# Server package
 
-You can submit your work through:
+## Models
 
-- [GitHub](https://github.com)
-- [CodeSandbox](https://codesandbox.io)
-- [Glitch](https://glitch.com)
-- ...other
+- Query
+    - Filters data by name.
+    
+- FilterByType
+    - Filters data by a type.
 
-The code must be available to us in order to evaluate your submission.
+- GetAllTypes
+    - Returns a unique set of all types.
+    
+## Functions
 
-## **Evaluation**
+- ToConnection
+    - Handles paged pokemon data.
+    
+- ToConnectionType
+    - Handles pokemon type list.
 
-Our goal is to find answers to those questions:
+## Resolvers
 
-- Do you understand the TypeScript language and more in general web technologies?
-- Can you design interfaces that are clear and easy to use?
-- Do you master your working environment?
+- Pokemons
+    - Returns filtered pokemons by name.
 
-Due to the limited time consider the followings:
+- PokemonsByType
+    - Returns filtered pokemons by type.
 
-- It is NOT important to have a fully functional application at the end.
-- We'll develop just for the latest version of Google Chrome.
+- pokemonTypes
+    - Returns all pokemon type list.
+
+## How to install
+
+Execute `yarn install` from root folder
+
+### Start server
+
+Execute `yarn start` from /packages/server
+
+### Start client
+
+Execute `yarn start` from /packages/client
