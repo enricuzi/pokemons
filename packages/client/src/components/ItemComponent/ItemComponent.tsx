@@ -6,6 +6,8 @@ import {COLORS} from "../../models/model-colors";
 const ItemComponent: React.FC<{ name: string, classification: string, types: string[] }> = ({name = "No name", classification = '', types = []}) => {
 	const firstTypeName: string = types.length > 0 ? types[0] : 'Normal';
 	const secondTypeName: string = types.length > 1 ? types[1] : firstTypeName;
+
+	// Ghost color is missing from list so it will fallback to Normal color
 	const color0 = COLORS[firstTypeName] || COLORS['Normal'];
 	const color1 = COLORS[secondTypeName] || COLORS['Normal'];
 	return (
